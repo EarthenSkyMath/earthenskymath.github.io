@@ -4,6 +4,7 @@
 <html>
   <head>
     <title>Keisan - "Technically" a Programming Language</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta charset="UTF-8">
   </head>
 
@@ -16,27 +17,120 @@
       background: repeating-linear-gradient(to right, #444, #111 16.5%, #444 33%); /* Standard syntax */
 
       font-family: monospace;
+      font-size: 2em;
     }
 
     #divPage {
       background-color: #ddd;
       position: absolute;
       top: 0vh;
-      left: 10vw;
+      left: 10%;
       height: 100vh;
-      width: 80vw;
+      width: 80%;
       min-width: 400px;
       z-index: -20;
     }
 
+    #pageHeader {
+      background-color: #18e;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 140px;
+      width: 100%;
+      z-index: -20;
+    }
+
+    #infoBar {
+      background-color: #44b;
+      position: absolute;
+      top: 140px;
+      left: 0;
+      height: 42px;
+      width: 100%;
+      z-index: -20;
+
+      display: flex;
+      white-space: nowrap;
+    }
+
+    #pageMid {
+      background-color: #bbb;
+      position: absolute;
+      top: 182px;
+      left: 0;
+      height: calc((100% - 182px) / 2);
+      width: 100%;
+      z-index: -20;
+    }
+
+    #pageBottom {
+      background-color: #888;
+      position: absolute;
+      top: calc((100% - 182px) / 2 + 182px);;
+      left: 0;
+      height: calc((100% - 182px) / 2);
+      width: 100%;
+      z-index: -20;
+    }
+
+    #infoBar a h4 {
+      color: #eee;
+      margin: 6px;
+    }
+
+    #infoBar a h4:hover {
+      color: #e60;
+    }
+
   </style>
 
-  <body id="bodyBackground">
+  <body id="bodyBackground" onload="start()">
     <div id="divPage">
-      <p style="color: #111; margin: 6px;">This is "technically going to be a programming language. <br> <br> Don't worry I looked it up."</p>
+      <div id="pageHeader">
+        <h1 style="color: #eee; margin: auto; margin-top: 2px; width: 500px; font-size: 3em;">Keisan 計算</h1>
+        <h3 style="color: #eee; margin: 5px; white-space: nowrap;">This is "technically" a programming language.</h3>
+      </div>
+
+      <div id="infoBar">
+        <h4 style="color: #eee; margin: 6px;">|</h4>
+
+        <a style="text-decoration: none;" href="https://github.com/EarthenSkyMath/earthenskymath.github.io/wiki">
+          <h4>WIKI</h4>
+        </a>
+
+        <h4 style="color: #eee; margin: 6px;">|</h4>
+
+        <a style="text-decoration: none;" href="???">
+          <h4>INFO</h4>
+        </a>
+
+        <h4 style="color: #eee; margin: 6px;">|</h4>
+
+        <a style="text-decoration: none;" href="https://github.com/EarthenSkyMath/earthenskymath.github.io">
+          <h4>GITHUB</h4>
+        </a>
+
+        <h4 style="color: #eee; margin: 6px;">|</h4>
+
+        <a style="text-decoration: none;" href="???">
+          <h4>MORE STUFF</h4>
+        </a>
+
+        <h4 style="color: #eee; margin: 6px;">|</h4>
+      </div>
+
+      <div id="pageMid">
+        <h4 style="color: #111; margin: 6px;">Code: </h4>
+      </div>
+
+      <div id="pageBottom">
+        <h4 style="color: #111; margin: 6px;">Output: </h4>
+      </div>
 
     </div>
 
+    <script src="js/inputField.js"></script>
   </body>
 
 </html>
