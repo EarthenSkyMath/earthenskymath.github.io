@@ -132,6 +132,18 @@
       min-height: 400px;
 
       margin: auto;
+
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .unselectable {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
   </style>
@@ -187,11 +199,11 @@
 
       <div id="pageMid">
         <h4 style="color: #111; margin: 6px;">Code: </h4>
-        <div type="text" id="textInputField" onclick='$("#textInputField").focus();'>
-          <input type='text' id='foo'> <div onclick='$("#foo").focus();'>click</div>
-          <h4 style="margin: 0; display: inline-block;">=> "Hello World!";</h4><textCursor style="margin: 0; display: inline-block;">|</textCursor>
 
+        <div type="text" id="textInputField" onclick='toggleTextSelected()'>
+          <h4 style="margin: 0; display: inline-block;" id="codeInputField">=> "Hello World!";</h4><textCursor style="margin: 0; display: inline-block;" class="unselectable">|</textCursor>
         </div>
+
       </div>
 
       <div id="pageBottom">
