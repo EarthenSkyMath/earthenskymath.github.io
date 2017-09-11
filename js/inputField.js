@@ -12,7 +12,7 @@ function toggleTextSelected() {
   textSelected = !textSelected;  //place this at onClick();
 
   if(textSelected) {
-    //$("#textInputField").focus(); //TODO: this
+    document.getElementById("codeInputField").innerHTML += prompt(); //TODO: this
     startBlinkyTextCursorAnimation();
   }
   else {
@@ -28,7 +28,7 @@ var capsOn = false;
 var shiftDown = false;
 document.addEventListener('keydown', function(event) {
     if(textSelected) {
-      if(shiftDown === true && event.keyCode === 16) {
+      if(shiftDown === true && event.keyCode === 16 || event.keyCode === 17) {
         return;
       }
       else if(event.keyCode === 8) {
@@ -46,14 +46,39 @@ document.addEventListener('keydown', function(event) {
         shiftDown = true;
       }
       else {
-        if(shiftDown === true) {  //uppercase;
-          document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
+        if(shiftDown === true) {  //uppercase and different case
+          if(event.keyCode === 186) {
+            document.getElementById("codeInputField").innerHTML += ':';
+          }
+          else if(event.keyCode === 222) {
+            document.getElementById("codeInputField").innerHTML += '\"';
+          }
+          else {
+            document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
+          }
         }
-        else if (capsOn === true) {
-          document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
+        else if (capsOn === true) { //uppercase and regular case
+          if(event.keyCode === 186) {
+            document.getElementById("codeInputField").innerHTML += ';';
+          }
+          else if(event.keyCode === 222) {
+            document.getElementById("codeInputField").innerHTML += '\'';
+          }
+          else {
+            document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
+          }
         }
-        else { //lowercase;
-          document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode).toLowerCase();
+        else { //lowercase and regular case
+          if(event.keyCode === 186) {
+            document.getElementById("codeInputField").innerHTML += ';';
+          }
+          else if(event.keyCode === 222) {
+            document.getElementById("codeInputField").innerHTML += '\'';
+          }
+          else {
+            document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode).toLowerCase();
+          }
+
         }
         console.log('key = ' + event.keyCode);
       }
