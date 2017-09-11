@@ -11,6 +11,7 @@ function toggleTextSelected() { //?
   textSelected = !textSelected;  //place this at onClick();
 
   if(textSelected) {
+    $("#textInputField").focus(); //this
     startBlinkyTextCursorAnimation();
   }
   else {
