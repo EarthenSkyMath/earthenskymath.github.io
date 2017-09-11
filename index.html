@@ -64,6 +64,7 @@
       z-index: -20;
 
       overflow-y: auto;
+      overflow-x: hidden;
     }
 
     #pageMidInfo {
@@ -124,7 +125,7 @@
       background-color: #eee;
 
       position: relative;
-      width: 95%;
+      width: 100%;
       height: calc(100% - (43px) - (2vw));
       left: 0;
       top: 0;
@@ -200,8 +201,10 @@
       <div id="pageMid">
         <h4 style="color: #111; margin: 6px;">Code: </h4>
 
-        <div type="text" id="textInputField" onclick='toggleTextSelected()'>
-          <h4 style="margin: 0; display: inline-block;" id="codeInputField">=> "Hello World!";</h4><textCursor style="margin: 0; display: inline-block;" class="unselectable">|</textCursor>
+        <div id="textInputField" onclick='toggleTextSelected()'>
+          <h4 style="margin: 0 0px 0 0; display: inline-block;" id="codeInputField">=> "Hello World!";</h4>
+          <h4 style="margin: 0; display: inline-block;">&nbsp</h4>
+          <textCursor id="textCursor" style="margin: 0 0 0 -46px; display: inline-block; " class="unselectable">|</textCursor>
         </div>
 
       </div>

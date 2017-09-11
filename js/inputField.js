@@ -46,7 +46,10 @@ document.addEventListener('keydown', function(event) {
         shiftDown = true;
       }
       else {
-        if(shiftDown === true || capsOn === true) {  //uppercase;
+        if(shiftDown === true) {  //uppercase;
+          document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
+        }
+        else if (capsOn === true) {
           document.getElementById("codeInputField").innerHTML += String.fromCharCode(event.keyCode);
         }
         else { //lowercase;
