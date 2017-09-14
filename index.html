@@ -130,12 +130,29 @@
       left: 0;
       top: 0;
 
-      min-height: 400px;
-
       margin: auto;
 
-      overflow-x: auto;
+      resize: none;
+      border: none;
+
+      font-size: 1em;
+
+      min-height: 196px;
+
+      /*overflow-x: auto;*/
       white-space: nowrap;
+    }
+
+    #runBtn {
+       color: #111;
+       margin: 6px;
+       display: inline-block;
+       float: right;
+       background-color: #eee;
+       cursor: pointer;
+    }
+    #runBtn:active {
+      background-color: #fed;
     }
 
     .unselectable {
@@ -188,7 +205,7 @@
         <h4 style="color: #111; margin: 12px;">This language looks a lot like <em2>Java</em2> or <em2>C#</em2> but is actually pretty different. &nbspThis language is also not very efficent. &nbsp(It <em>is</em> made with <em2>JavaScript</em2>)</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">Here is some example code for printing <em3>Hello World!</em3> to the console to get you started:</h4>
-        <h4 class="code">=> "Hello World!";</h4>
+        <h4 class="code">=> "Hello World!";</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">What does this mean?</h4>
         <h4 style="color: #111; margin: 12px;">○ First off <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">=></em> takes a <em3>string</em3> and adds it as a new line to the output.</h4>
@@ -199,14 +216,9 @@
       </div>
 
       <div id="pageMid">
-        <h4 style="color: #111; margin: 6px;">Code: </h4>
-
-        <div id="textInputField" onclick='toggleTextSelected()'>
-          <h4 style="margin: 0 0px 0 0; display: inline-block;" id="codeInputField">=> "Hello World!";</h4>
-          <h4 style="margin: 0; display: inline-block;">&nbsp</h4>
-          <textCursor id="textCursor" style="margin: 0 0 0 -46px; display: inline-block; " class="unselectable">|</textCursor>
-        </div>
-
+        <h4 style="color: #111; margin: 6px; display: inline-block;">Code: </h4>
+        <btn id="runBtn" class="unselectable" onclick="run()">Run Code</btn>
+        <textarea type="input" rows="4" cols="50" id="textInputField">=> "Hello World!";</textarea>
       </div>
 
       <div id="pageBottom">
@@ -215,7 +227,8 @@
 
     </div>
 
-    <script src="js/inputField.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/codeProcessing.js"></script>
   </body>
 
 </html>
