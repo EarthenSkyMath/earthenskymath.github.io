@@ -1,3 +1,5 @@
+var output = document.getElementById("output");
+
 function start() {
   console.log('start');
 

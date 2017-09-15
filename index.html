@@ -79,7 +79,7 @@
     }
 
     #pageBottom {
-      background-color: #888;
+      background-color: #999;
       position: absolute;
       top: calc((100% - 7.25em) / 2 + 7.25em);;
       left: 0;
@@ -151,8 +151,13 @@
        background-color: #eee;
        cursor: pointer;
     }
+
     #runBtn:active {
       background-color: #fed;
+    }
+
+    #output {
+      background-color: #777;
     }
 
     .unselectable {
@@ -202,27 +207,29 @@
       </div>
 
       <div id="pageMidInfo">
-        <h4 style="color: #111; margin: 12px;">This language looks a lot like <em2>Java</em2> or <em2>C#</em2> but is actually pretty different. &nbspThis language is also not very efficent. &nbsp(It <em>is</em> made with <em2>JavaScript</em2>)</h4>
+        <h4 style="color: #111; margin: 12px;">This language looks a little like a <em2>C</em2> based language but is actually pretty different. &nbspThis language is also not very efficent. &nbsp(It <em>is</em> made with <em2>JavaScript</em2>)</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">Here is some example code for printing <em3>Hello World!</em3> to the console to get you started:</h4>
         <h4 class="code">=> "Hello World!";</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">What does this mean?</h4>
-        <h4 style="color: #111; margin: 12px;">○ First off <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">=></em> takes a <em3>string</em3> and adds it as a new line to the output.</h4>
-        <h4 style="color: #111; margin: 12px;">○ <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">"Hello World!"</em> is the <em3>string</em3> that is passed to <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">=></em> then sent to the output.</h4>
+        <h4 style="color: #111; margin: 12px;">○ First off <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">=></em> takes all <em3>strings</em3> after it and prints them in output.</h4>
+        <h4 style="color: #111; margin: 12px;">○ <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">"Hello World!"</em> is the <em3>string</em3> that is outputted by <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">=></em>.</h4>
         <h4 style="color: #111; margin: 12px;">○ <em class="code" style="padding: 4px 12px 4px 12px; margin: 6px;">;</em> ends the line just like in most C based languages.</h4>
+        <h4 style="color: #111; margin: 12px;">○ The program ends when there are no more characters left.</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">For more information see the <a id="WIKIButton" style="text-decoration: none;" href="https://github.com/EarthenSkyMath/earthenskymath.github.io/wiki">WIKI</a> (^ w ^)</h4>
       </div>
 
       <div id="pageMid">
         <h4 style="color: #111; margin: 6px; display: inline-block;">Code: </h4>
-        <btn id="runBtn" class="unselectable" onclick="run()">Run Code</btn>
+        <btn id="runBtn" class="unselectable" onclick="runInit()">Run Code</btn><!--[you_can_put_small_comments_here_however_you_like._No_White-space_Though_xP]-->
         <textarea type="input" rows="4" cols="50" id="textInputField">=> "Hello World!";</textarea>
       </div>
 
       <div id="pageBottom">
         <h4 style="color: #111; margin: 6px;">Output: </h4>
+        <div id="output"><br></div>
       </div>
 
     </div>
