@@ -5,6 +5,6 @@ function run() {
   code = document.getElementById("codeInputField").innerHTML;
 
   for (i = 0; i < code.length; i++) {
-    
+
   }
 }
