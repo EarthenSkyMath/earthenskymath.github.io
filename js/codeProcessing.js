@@ -61,7 +61,7 @@ function checkFIKeywords() {
 
       break;
     default:
-      alert("oops you typed something wrong at the start of the line. ER:0");
+      alert("Oops you typed something wrong at the start of the line. ER:0");
       return;
   }
 }
@@ -122,5 +122,8 @@ function toOutput() {
 //resets variables needed at line end
 function endLine() {
   processStage = processStageEnum.FI_KEYS;
+}
+
+function stopProgram() {
 
 }
