@@ -1,12 +1,19 @@
+/*
+  TODO: LIST
+  - char inserts, #(67) will add char character #67 to the string, only works in strings and comments
+*/
+
+
 //this tells the code processor what to do
 var processStageEnum = {
     FI_KEYS : 0,  //First Instance Keywords
     AFTERKEY : 1, //ignores each char until it hits whitespace
     OUT : 2,      //print to the output
     DEFINE : 3,   //start looking for what type of variable is being defined
-    PUSH : 4,     //call a function
-    SI_KEYS : 5,  //Second Instance Keywords
-    ENDLINE : 6   //this line of code is done
+    SI_KEYS : 4,  //Second Instance Keywords
+    PUSH : 5,     //call a function
+    COM : 6,      //comment line
+    ENDLINE : 7   //this line of code is done
 }
 var nextProcessStage;  //used for queing a processStage
 var processStage = processStageEnum.FI_KEYS;
@@ -26,15 +33,15 @@ function runCode() {
     switch(processStage) {
       case processStageEnum.FI_KEYS:
         checkFIKeywords();
-        console.log('1');
+        //console.log('1');
         break;
       case processStageEnum.AFTERKEY:
         afterKeywords();
-        console.log('2');
+        //console.log('2');
         break;
       case processStageEnum.OUT:
         toOutput();
-        console.log('3');
+        //console.log('3');
         break;
       default:
         alert("Ahahahhahaha!  Something broke.  This is never supposed to be called.  (^ w ^)");
@@ -44,12 +51,21 @@ function runCode() {
 
   console.log("!endProgram!");
   console.log("¯¯¯¯¯¯¯¯¯¯¯¯");
+  console.log(code);
+  console.log("¯¯¯¯¯¯¯¯¯¯¯¯");
   console.log("processStage: " + processStage + ", nextProcessStage: " + nextProcessStage);
   console.log("outputType: " + outputType + ", outputString: " + outputString);
 }
 
+function ignoreChar() {
+  console.log("^ : ignored");
+}
+
 function checkFIKeywords() {
   switch(code[i]) {
+    case " ": case String.fromCharCode(10): //10 is \n
+      ignoreChar();
+      break;
     case "=":
       processStage = processStageEnum.AFTERKEY;
       nextProcessStage = processStageEnum.OUT;
@@ -100,7 +116,7 @@ function toOutput() {
         endLine();
         return;
       default:
-        console.log("^ : ignored");
+        ignoreChar();
         return;
     }
   }

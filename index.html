@@ -125,7 +125,7 @@
       background-color: #eee;
 
       position: relative;
-      width: 100%;
+      width: 99%;
       height: calc(100% - (43px) - (2vw));
       left: 0;
       top: 0;
@@ -143,16 +143,26 @@
       white-space: nowrap;
     }
 
-    #runBtn {
-       color: #111;
-       margin: 6px;
-       display: inline-block;
-       float: right;
-       background-color: #eee;
-       cursor: pointer;
+    .btn {
+      font-size: 0.75em;
+
+      color: #111;
+      background-color: #eee;
+
+      padding: 4px;
+      margin: 6px;
+
+      display: inline-block;
+      float: right;
+
+      cursor: pointer;
     }
 
-    #runBtn:active {
+    .btn:hover {
+      background-color: #fde;
+    }
+
+    .btn:active {
       background-color: #fed;
     }
 
@@ -223,7 +233,8 @@
 
       <div id="pageMid">
         <h4 style="color: #111; margin: 6px; display: inline-block;">Code: </h4>
-        <btn id="runBtn" class="unselectable" onclick="runInit()">Run Code</btn><!--[you_can_put_small_comments_here_however_you_like._No_White-space_Though_xP]-->
+        <btn class="unselectable btn" onclick="runInit()">Run Code</btn>
+        <btn class="unselectable btn" onclick="downloadFile('myScript.kei')">Download Script</btn>
         <textarea type="input" rows="4" cols="50" id="textInputField">=> "Hello World!";</textarea>
       </div>
 
