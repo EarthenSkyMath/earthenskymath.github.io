@@ -168,6 +168,10 @@
 
     #output {
       background-color: #777;
+
+      white-space: nowrap;
+      overflow: auto;
+      max-height: 1024px;
     }
 
     .unselectable {
@@ -217,7 +221,7 @@
       </div>
 
       <div id="pageMidInfo">
-        <h4 style="color: #111; margin: 12px;">This language looks a little like a <em2>C</em2> based language but is actually pretty different. &nbspThis language is also not very efficent. &nbsp(It <em>is</em> made with <em2>JavaScript</em2>)</h4>
+        <h4 style="color: #111; margin: 12px;">This language looks a little like a <em2>C</em2> based language but is actually pretty different. &nbspIts also not very efficent.&nbsp (It <em>is</em> made with <em2>JavaScript</em2>)</h4>
         <br>
         <h4 style="color: #111; margin: 12px;">Here is some example code for printing <em3>Hello World!</em3> to the console to get you started:</h4>
         <h4 class="code">=> "Hello World!";</h4>
@@ -239,7 +243,8 @@
       </div>
 
       <div id="pageBottom">
-        <h4 style="color: #111; margin: 6px;">Output: </h4>
+        <h4 style="color: #111; margin: 6px; display: inline-block;">Output: </h4>
+        <btn class="unselectable btn" onclick="clearOutput()">Clear Output</btn>
         <div id="output"><br></div>
       </div>
 

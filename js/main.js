@@ -34,3 +34,7 @@ function downloadFile(filename) {
 
   document.body.removeChild(element);
 }
+
+function clearOutput() {
+  output.innerHTML = "<br>";
+}
