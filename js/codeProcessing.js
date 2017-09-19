@@ -1,6 +1,7 @@
 /*
   TODO: LIST
   - char inserts, #(67) will add char character #67 to the string, only works in strings and comments
+  - upload (or edit) a .json file that changes keyword values.
 */
 
 
@@ -237,13 +238,60 @@ function variableType() {
   }
 }
 
+var variableValue = [];
+var variableName = [];
+
 //web syntax
 function webVar() {
 
 }
 
 //int syntax
+var intDefStageEnum = {
+    NAME : 0,   //assign the name of the vaiable
+    EQUALS : 1, //check if the variable needs to be assigned a value
+    VALUE : 2   //assign the value to the variable
+}
+var intDefStage = intDefStageEnum.NAME;  //what is the stage of variable definition.
 function intVar() {
+  switch(varTypeEnum) {
+    case intDefStageEnum.NAME:  //assign the name of the vaiable
+      intNameDef();
+      break;
+    case intDefStageEnum.EQUALS:  //check if the variable needs to be assigned a value
+      intEquals();
+      break;
+    case intDefStageEnum.VALUE:  //assign the value to the variable
+      intValue();
+      break;
+    default:
+      exitProgram();
+      output.innerHTML += "&nbsp; ER:? | This should never happen, at line : " + lineNumber + " <br>";
+      return;
+  }
+}
+
+var intName;
+function intNameDef() {
+  switch(code[i]) {
+    case " ": case String.fromCharCode(10): //10 is \n
+      ignoreChar();
+      break;
+    case ";": case "(": case ")": case "\"": case "{": case "}":   //invalid characters
+      exitProgram();
+      output.innerHTML += "&nbsp; ER:4.B | Invalid character in (integer) variable at line : " + lineNumber + " <br>";
+      break;
+    default:
+      intName += code[i];
+      return;
+  }
+}
+
+function intEquals() {
+
+}
+
+function intValue() {
 
 }
 
@@ -285,8 +333,11 @@ function endProgram() {
     output.innerHTML += "&nbsp; ER:2 | A value was left in output, did you miss a ( \" ) ? <br>";
   }
 
-  lineNumber = 1;
+  varType = undefined;
 
+  intDefStage = intDefStageEnum.NONE;
+
+  lineNumber = 1;
   stopProg = false;
 }
 
